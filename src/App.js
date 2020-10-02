@@ -44,10 +44,12 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: "white",
+      backgroundColor: "salmon",
+      color: "white",
       font: "inherit",
-      border: "1px solid #333",
+      border: "1px solid salmon",
       padding: "8px",
+      borderRadius: "4px",
       cursor: "pointer",
     };
 
@@ -69,6 +71,9 @@ class App extends Component {
           })}
         </div>
       );
+      style.backgroundColor = "lightSkyBlue";
+      style.border = "1px solid lightskyblue";
+      style.color = "#333";
     }
 
     return (
