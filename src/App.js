@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Redium from "radium";
 import Person from "./Person/Person";
-import Radium from "radium";
 
 class App extends Component {
   state = {
@@ -102,4 +100,4 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default App;
