@@ -1,22 +1,6 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import "./App.css";
 import Person from "./Person/Person";
-//#ff304f
-const ButtonToggle = styled.button`
-  background-color: ${props => (!props.show ? "#fc5185" : "transparent")};
-  color: ${props => (props.show ? "#fc5185" : "white")};
-  font: inherit;
-  border: ${props => (props.show ? "1px solid #fc5185" : "white")};
-  padding: 8px;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${props => (props.show ? "#fc5185" : "#fc5c9c")};
-    color: #f2f2f2;
-  }
-`;
 
 class App extends Component {
   state = {
@@ -89,12 +73,7 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p className={classes.join(" ")}>This is really working!</p>
-        <ButtonToggle
-          show={this.state.showPersons}
-          onClick={this.togglePersonsHandler}
-        >
-          Toggle Persons
-        </ButtonToggle>
+        <button onClick={this.togglePersonsHandler}>Toggle Persons</button>
         <br />
         <br />
         {persons}
