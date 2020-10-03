@@ -31,10 +31,30 @@ const PersonStyle = styled.div`
   }
 `;
 
+const Remove = styled.button`
+  text-decoration: none;
+  background-color: #f30d5a;
+  padding: 0.2rem 0.75rem;
+  border-radius: 3px;
+  color: #f2f2f2;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin-left: auto;
+
+  &:hover {
+    background-color: #f30d5ad3;
+  }
+  &:focus {
+    box-shadow: 0 0 0.2rem #f30d5a;
+  }
+`;
+
 const person = props => {
   return (
     <PersonStyle>
-      <p onClick={props.click}>
+      <Remove onClick={props.click}>X</Remove>
+      <p>
         I'm {props.name} and I am {props.age} years old!
       </p>
       {/* <p>{props.children}</p> */}

@@ -1,6 +1,22 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import "./App.css";
 import Person from "./Person/Person";
+//#ff304f
+const ButtonToggle = styled.button`
+  background-color: ${props => (!props.show ? "#fc5185" : "transparent")};
+  color: ${props => (props.show ? "#fc5185" : "white")};
+  font: inherit;
+  border: ${props => (props.show ? "1px solid #fc5185" : "white")};
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${props => (props.show ? "#fc5185" : "#fc5c9c")};
+    color: #f2f2f2;
+  }
+`;
 
 class App extends Component {
   state = {
@@ -43,21 +59,6 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: "#f30d5a",
-      color: "white",
-      font: "inherit",
-      border: "1px solid #f30d5a",
-      padding: "8px",
-      borderRadius: "4px",
-      cursor: "pointer",
-      ":hover": {
-        backgroundColor: "#f30d5acb",
-        color: "#f2f2f2",
-        boxShadow: "0 0 0.2rem #f30d5a7e",
-      },
-    };
-
     let persons = null;
 
     if (this.state.showPersons) {
@@ -76,9 +77,6 @@ class App extends Component {
           })}
         </div>
       );
-      style.backgroundColor = "transparent";
-      style.border = "1px solid #f30d5a";
-      style.color = "#f30d5a";
     }
 
     const classes = [];
@@ -91,9 +89,14 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p className={classes.join(" ")}>This is really working!</p>
-        <button style={style} onClick={this.togglePersonsHandler}>
+        <ButtonToggle
+          show={this.state.showPersons}
+          onClick={this.togglePersonsHandler}
+        >
           Toggle Persons
-        </button>
+        </ButtonToggle>
+        <br />
+        <br />
         {persons}
       </div>
     );
