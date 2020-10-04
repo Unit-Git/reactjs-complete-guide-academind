@@ -50,7 +50,7 @@ const Remove = styled.button`
   }
 `;
 
-const person = props => {
+const Person = props => {
   return (
     <PersonStyle>
       <Remove onClick={props.click}>X</Remove>
@@ -63,4 +63,4 @@ const person = props => {
   );
 };
 
-export default person;
+export default Person;
