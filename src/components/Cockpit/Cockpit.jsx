@@ -10,9 +10,12 @@ const Cockpit = props => {
 
   return (
     <>
-      <h1>Hi, I'm a React App</h1>
+      <h1>{props.title}</h1>
       <p className={classes.join(" ")}>This is really working!</p>
-      <button className="button" onClick={props.toggle}>
+      <button
+        className={`button-art ${props.isClicked ? "active" : ""}`}
+        onClick={props.toggle}
+      >
         Toggle Persons
       </button>
     </>

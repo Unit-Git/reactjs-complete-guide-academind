@@ -51,6 +51,7 @@ const Remove = styled.button`
 `;
 
 const Person = props => {
+  console.log("[Person.jsx] rendering...");
   return (
     <PersonStyle>
       <Remove onClick={props.click}>X</Remove>
