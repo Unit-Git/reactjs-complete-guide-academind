@@ -7,12 +7,13 @@ const Cockpit = props => {
   useEffect(() => {
     console.log("[Cockpit.jsx] useEffect");
 
-    setTimeout(() => {
+    const timers = setTimeout(() => {
       console.log("Fetching has successfull");
     }, 1000);
 
     return () => {
       console.log("[Cockpit,jsx] Cleanup work in useEffet() ");
+      clearTimeout(timers);
     };
   }, []);
 
