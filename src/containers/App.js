@@ -92,7 +92,7 @@ class App extends Component {
           isClicked={this.state.showPersons}
           title={this.props.appTitle}
           toggle={this.togglePersonsHandler}
-          persons={this.state.persons}
+          personsLength={this.state.persons.length}
         />
         <br />
         <br />

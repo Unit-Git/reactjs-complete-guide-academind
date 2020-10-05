@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 import "./Cockpit.css";
 
 const Cockpit = props => {
   const classes = [];
+
+  const { personsLength } = props;
 
   useEffect(() => {
     console.log("[Cockpit.jsx] useEffect");
@@ -17,9 +19,9 @@ const Cockpit = props => {
     };
   }, []);
 
-  if (props.persons.length <= 2) classes.push("red");
+  if (personsLength <= 2) classes.push("red");
 
-  if (props.persons.length <= 1) classes.push("bold");
+  if (personsLength <= 1) classes.push("bold");
 
   return (
     <>
@@ -35,4 +37,4 @@ const Cockpit = props => {
   );
 };
 
-export default Cockpit;
+export default memo(Cockpit);
