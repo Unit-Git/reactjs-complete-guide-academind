@@ -6,7 +6,11 @@ const Cockpit = props => {
 
   useEffect(() => {
     console.log("[Cockpit.jsx] useEffect");
-  });
+
+    setTimeout(() => {
+      console.log("Fetching has successfull");
+    }, 1000);
+  }, []);
 
   if (props.persons.length <= 2) classes.push("red");
 
