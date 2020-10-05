@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import "./Person.css";
 
@@ -50,18 +50,38 @@ const Remove = styled.button`
   }
 `;
 
-const Person = props => {
-  console.log("[Person.jsx] rendering...");
-  return (
-    <PersonStyle>
-      <Remove onClick={props.click}>X</Remove>
-      <p>
-        I'm {props.name} and I am {props.age} years old!
-      </p>
-      {/* <p>{props.children}</p> */}
-      <Input type="text" onChange={props.changed} value={props.name} />
-    </PersonStyle>
-  );
-};
+// const Person = props => {
+//   console.log("[Person.jsx] rendering...");
+//   return (
+//     <PersonStyle>
+//       <Remove onClick={props.click}>X</Remove>
+//       <p>
+//         I'm {props.name} and I am {props.age} years old!
+//       </p>
+//       {/* <p>{props.children}</p> */}
+//       <Input type="text" onChange={props.changed} value={props.name} />
+//     </PersonStyle>
+//   );
+// };
+
+class Person extends Component {
+  render() {
+    console.log("[Person.jsx] rendering...");
+    return (
+      <PersonStyle>
+        <Remove onClick={this.props.click}>X</Remove>
+        <p>
+          I'm {this.props.name} and I am {this.props.age} years old!
+        </p>
+        {/* <p>{props.children}</p> */}
+        <Input
+          type="text"
+          onChange={this.props.changed}
+          value={this.props.name}
+        />
+      </PersonStyle>
+    );
+  }
+}
 
 export default Person;
