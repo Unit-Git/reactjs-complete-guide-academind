@@ -10,6 +10,10 @@ const Cockpit = props => {
     setTimeout(() => {
       console.log("Fetching has successfull");
     }, 1000);
+
+    return () => {
+      console.log("[Cockpit,jsx] Cleanup work in useEffet() ");
+    };
   }, []);
 
   if (props.persons.length <= 2) classes.push("red");
