@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Person from "./Person/Person";
 
 // const Persons = props => {
@@ -20,16 +20,16 @@ import Person from "./Person/Person";
 //   );
 // };
 
-class Persons extends Component {
+class Persons extends PureComponent {
   // static getDerivedStateFromProps(props, state) {
   //   console.log("[Persons.jsx] getDerivedStateFromProps", props);
   //   return state;
   // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("[Persons.jsx] shouldComponentUpdate....");
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log("[Persons.jsx] shouldComponentUpdate....");
+  //   return true;
+  // }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("[Persons.jsx] getSnapshotBeforeUpdate....");
