@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Cockpit.css";
 
 const Cockpit = props => {
   const classes = [];
+
+  useEffect(() => {
+    console.log("[Cockpit.jsx] useEffect");
+  });
 
   if (props.persons.length <= 2) classes.push("red");
 
