@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Aux from "../../../hoc/Aux";
 import "./Person.css";
 
 const Input = styled.input`
@@ -68,18 +69,20 @@ class Person extends Component {
   render() {
     console.log("[Person.jsx] rendering...");
     return (
-      <PersonStyle>
-        <Remove onClick={this.props.click}>X</Remove>
-        <p>
-          I'm {this.props.name} and I am {this.props.age} years old!
-        </p>
-        {/* <p>{props.children}</p> */}
-        <Input
-          type="text"
-          onChange={this.props.changed}
-          value={this.props.name}
-        />
-      </PersonStyle>
+      <Aux>
+        <PersonStyle>
+          <Remove onClick={this.props.click}>X</Remove>
+          <p>
+            I'm {this.props.name} and I am {this.props.age} years old!
+          </p>
+          {/* <p>{props.children}</p> */}
+          <Input
+            type="text"
+            onChange={this.props.changed}
+            value={this.props.name}
+          />
+        </PersonStyle>
+      </Aux>
     );
   }
 }
