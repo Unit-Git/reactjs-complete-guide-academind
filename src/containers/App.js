@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
+import WithClass from "../hoc/WithClass";
 
 class App extends Component {
   constructor(props) {
@@ -87,7 +88,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <WithClass className="App">
         <Cockpit
           isClicked={this.state.showPersons}
           title={this.props.appTitle}
@@ -98,7 +99,7 @@ class App extends Component {
         <br />
 
         {persons}
-      </div>
+      </WithClass>
     );
   }
 }
