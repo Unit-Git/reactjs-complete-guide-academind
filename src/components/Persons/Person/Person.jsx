@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+
 import styled from "styled-components";
 import Aux from "../../../hoc/Aux";
 import "./Person.css";
@@ -69,7 +70,7 @@ class Person extends Component {
   render() {
     console.log("[Person.jsx] rendering...");
     return (
-      <Aux>
+      <Fragment>
         <PersonStyle>
           <Remove onClick={this.props.click}>X</Remove>
           <p>
@@ -82,7 +83,7 @@ class Person extends Component {
             value={this.props.name}
           />
         </PersonStyle>
-      </Aux>
+      </Fragment>
     );
   }
 }
