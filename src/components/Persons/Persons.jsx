@@ -58,6 +58,7 @@ class Persons extends PureComponent {
               name={person.name}
               age={person.age}
               changed={e => this.props.changed(e, person.id)}
+              isAuth={this.props.isAuthenticated}
             />
           );
         })}
@@ -70,6 +71,7 @@ Persons.propTypes = {
   persons: PropTypes.array.isRequired,
   clicked: PropTypes.func.isRequired,
   changed: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
 };
 
 export default Persons;

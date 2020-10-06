@@ -74,6 +74,7 @@ const personPropsTypes = {
   name: PropTypes.string,
   age: PropTypes.number,
   changed: PropTypes.func,
+  isAuth: PropTypes.bool,
 };
 
 class Person extends Component {
@@ -90,6 +91,7 @@ class Person extends Component {
     console.log("[Person.jsx] rendering...");
     return (
       <Fragment>
+        {this.props.isAuth ? <p>Authenticated </p> : <p>Please Login</p>}
         <PersonStyle>
           <Remove onClick={this.props.click}>X</Remove>
           <p>

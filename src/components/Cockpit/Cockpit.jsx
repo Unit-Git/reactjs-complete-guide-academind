@@ -1,5 +1,14 @@
 import React, { useEffect, memo } from "react";
+import PropTypes from "prop-types";
 import "./Cockpit.css";
+
+const cockpitPropsTypes = {
+  isClicked: PropTypes.func,
+  title: PropTypes.string,
+  toggle: PropTypes.func,
+  personLength: PropTypes.number,
+  login: PropTypes.func,
+};
 
 const Cockpit = props => {
   const classes = [];
@@ -33,8 +42,16 @@ const Cockpit = props => {
       >
         Toggle Persons
       </button>
+      <br />
+      <br />
+      <button className={`button-art`} onClick={props.login}>
+        {" "}
+        Log In
+      </button>
     </>
   );
 };
+
+Cockpit.propTypes = cockpitPropsTypes;
 
 export default memo(Cockpit);
