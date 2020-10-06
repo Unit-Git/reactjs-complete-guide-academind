@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 
 import styled from "styled-components";
-import Aux from "../../../hoc/Aux";
 import "./Person.css";
 
 const Input = styled.input`

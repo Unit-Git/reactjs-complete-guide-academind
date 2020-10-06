@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
-import WithClass from "../hoc/WithClass";
+import withClass from "../hoc/withClass.js";
+import Aux from "../hoc/Aux";
 
 class App extends Component {
   constructor(props) {
@@ -86,9 +87,9 @@ class App extends Component {
         </div>
       );
     }
-
+    console.log(this.props);
     return (
-      <WithClass className="App">
+      <Aux>
         <Cockpit
           isClicked={this.state.showPersons}
           title={this.props.appTitle}
@@ -99,9 +100,9 @@ class App extends Component {
         <br />
 
         {persons}
-      </WithClass>
+      </Aux>
     );
   }
 }
 
-export default App;
+export default withClass(App, "App");
