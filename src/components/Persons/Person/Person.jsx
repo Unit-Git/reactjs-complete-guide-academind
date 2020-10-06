@@ -1,27 +1,16 @@
-import React, { Component, Fragment } from "react";
-
+import React, { Component, Fragment, createRef } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import "./Person.css";
 
-const Input = styled.input`
-  border: 1px solid #333;
-  padding: 0.5rem 0.6rem;
-  border-radius: 4px;
-  width: 80%;
-
-  &:focus {
-    border: 1px solid #f30d5a;
-    box-shadow: 0 0 0.3rem #f30d5aa1;
-    background-color: #f2f2f2;
-  }
-`;
-
 const PersonStyle = styled.div`
-  width: 400px;
+  position: relative;
+  width: max-content;
   margin: 1rem auto;
   box-shadow: 0 2px 0.2rem rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem;
+  padding: 1.3rem 1.2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
@@ -29,6 +18,21 @@ const PersonStyle = styled.div`
 
   @media (max-width: 768px) {
     width: 80% !important;
+  }
+`;
+
+const Input = styled.input`
+  border: 1px solid #343434;
+  padding: 0.5rem 0.6rem;
+  border-radius: 4px;
+  width: auto;
+  display: inline-block;
+  color: #333;
+  &:focus {
+    color: #f30d5a;
+    border: 1px solid #f30d5a;
+    box-shadow: 0 0 0.3rem #f30d5aa1;
+    background-color: #f2f2f2;
   }
 `;
 
@@ -65,7 +69,23 @@ const Remove = styled.button`
 //   );
 // };
 
+const personPropsTypes = {
+  click: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  changed: PropTypes.func,
+};
+
 class Person extends Component {
+  constructor(props) {
+    super(props);
+    this.inputElementRef = createRef();
+  }
+
+  componentDidMount() {
+    this.inputElementRef.current.focus();
+  }
+
   render() {
     console.log("[Person.jsx] rendering...");
     return (
@@ -77,6 +97,7 @@ class Person extends Component {
           </p>
           {/* <p>{props.children}</p> */}
           <Input
+            ref={this.inputElementRef}
             type="text"
             onChange={this.props.changed}
             value={this.props.name}
@@ -86,5 +107,7 @@ class Person extends Component {
     );
   }
 }
+
+Person.propTypes = personPropsTypes;
 
 export default Person;

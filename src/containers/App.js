@@ -86,7 +86,6 @@ class App extends Component {
         </div>
       );
     }
-    console.log(this.props);
     return (
       <Aux>
         <Cockpit
@@ -97,7 +96,6 @@ class App extends Component {
         />
         <br />
         <br />
-
         {persons}
       </Aux>
     );

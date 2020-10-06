@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
 import Person from "./Person/Person";
 
@@ -64,5 +65,11 @@ class Persons extends PureComponent {
     );
   }
 }
+
+Persons.propTypes = {
+  persons: PropTypes.array.isRequired,
+  clicked: PropTypes.func.isRequired,
+  changed: PropTypes.func.isRequired,
+};
 
 export default Persons;
