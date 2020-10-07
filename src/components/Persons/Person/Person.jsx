@@ -2,10 +2,11 @@ import React, { Component, Fragment, createRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import "./Person.css";
+import AuthContext from "../../../context/auth-context";
 
 const PersonStyle = styled.div`
   position: relative;
-  width: max-content;
+  width: 400px;
   margin: 1rem auto;
   box-shadow: 0 2px 0.2rem rgba(0, 0, 0, 0.6);
   padding: 1.3rem 1.2rem;
@@ -27,6 +28,7 @@ const Input = styled.input`
   border-radius: 4px;
   width: auto;
   display: inline-block;
+  outline: none;
   color: #333;
   &:focus {
     color: #f30d5a;
@@ -91,7 +93,11 @@ class Person extends Component {
     console.log("[Person.jsx] rendering...");
     return (
       <Fragment>
-        {this.props.isAuth ? <p>Authenticated </p> : <p>Please Login</p>}
+        <AuthContext.Consumer>
+          {context => {
+            context.authenticated ? <p>Authenticated </p> : <p>Please Login</p>;
+          }}
+        </AuthContext.Consumer>
         <PersonStyle>
           <Remove onClick={this.props.click}>X</Remove>
           <p>

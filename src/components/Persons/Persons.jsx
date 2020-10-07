@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { PureComponent } from "react";
+
 import Person from "./Person/Person";
 
 // const Persons = props => {
@@ -58,7 +59,6 @@ class Persons extends PureComponent {
               name={person.name}
               age={person.age}
               changed={e => this.props.changed(e, person.id)}
-              isAuth={this.props.isAuthenticated}
             />
           );
         })}
