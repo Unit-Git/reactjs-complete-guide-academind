@@ -2,7 +2,7 @@ import React, { Component, Fragment, createRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import "./Person.css";
-import AuthContext from "../../../context/auth-context";
+import { AuthConsumer } from "../../../context/auth-context";
 
 const PersonStyle = styled.div`
   position: relative;
@@ -93,11 +93,19 @@ class Person extends Component {
     console.log("[Person.jsx] rendering...");
     return (
       <Fragment>
-        <AuthContext.Consumer>
+        <AuthConsumer>
           {context => {
-            context.authenticated ? <p>Authenticated </p> : <p>Please Login</p>;
+            return (
+              <Fragment>
+                {context.authenticated ? (
+                  <p>Authenticated </p>
+                ) : (
+                  <p>Please Login</p>
+                )}
+              </Fragment>
+            );
           }}
-        </AuthContext.Consumer>
+        </AuthConsumer>
         <PersonStyle>
           <Remove onClick={this.props.click}>X</Remove>
           <p>

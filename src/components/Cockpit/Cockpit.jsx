@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./Cockpit.css";
 
 const cockpitPropsTypes = {
-  isClicked: PropTypes.func,
+  isClicked: PropTypes.bool,
   title: PropTypes.string,
   toggle: PropTypes.func,
   personLength: PropTypes.number,
